@@ -128,10 +128,11 @@
     <h2>I have a question for you</h2>
 
     <p class="question">
-      I’ve been thinking about this for a bit, and I wanted to ask you in a way that feels simple and honest.<br><br>
-      You make my days lighter and a lot more fun, and I’d really like to spend Valentine’s Day with you.<br><br>
-      So… will you be my Valentine?
-    </p>
+    We haven’t met in person yet, but you’ve still managed to make a great impression.<br><br>
+    So I figured I’d ask you something small but meaningful:<br><br>
+    Would you like to be my Valentine?
+  </p>
+
 
     <div class="buttons">
       <button id="yesBtn">Yes</button>
@@ -149,7 +150,7 @@
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
   <script>
-    emailjs.init("YOUR_PUBLIC_KEY");
+    emailjs.init("Ld1PiKo6_KOJrh-vk");
 
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
@@ -159,7 +160,7 @@
     let noClickCount = 0;
 
     function sendEmail(response) {
-      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+      emailjs.send("service_dcanddh", "template_s56q12m", {
         name: "Ebube",
         response: response
       });
