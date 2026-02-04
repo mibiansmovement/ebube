@@ -3,154 +3,156 @@
 <head>
   <meta charset="UTF-8" />
   <title>Dear Ebube</title>
-<style>
-  body {
-    font-family: "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top, #ffb3c6, #ffd6e0, #fff0f5);
-    text-align: center;
-    padding: 20px;
-    color: #4a0033;
-  }
 
-  .card {
-    background: #fff0f6;
-    border-radius: 20px;
-    padding: 25px 20px 35px;
-    max-width: 500px;
-    width: 100%;
-    margin: 0 auto;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    position: relative;
-    overflow: hidden;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-size: 1.1rem;
-    margin-top: 0;
-    color: #b3005a;
-  }
-
-  .question {
-    font-size: 1rem;
-    margin: 20px 0 30px;
-    line-height: 1.6;
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  button {
-    border: none;
-    border-radius: 999px;
-    padding: 12px 24px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
-  }
-
-  #yesBtn {
-    background: #ff4b8b;
-    color: white;
-    box-shadow: 0 6px 15px rgba(255, 75, 139, 0.4);
-  }
-
-  #yesBtn:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 18px rgba(255, 75, 139, 0.6);
-    background: #ff2f78;
-  }
-
-  #noBtn {
-    background: #ffe0f0;
-    color: #b3005a;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-
-  #noBtn:hover {
-    transform: translateY(-2px);
-  }
-
-  .footer {
-    margin-top: 25px;
-    font-size: 0.9rem;
-    color: #7a0044;
-  }
-
-  .tiny {
-    font-size: 0.8rem;
-    opacity: 0.8;
-  }
-
-  .floating-hearts {
-    position: fixed;
-    pointer-events: none;
-    inset: 0;
-    overflow: hidden;
-    z-index: -1;
-  }
-
-  .heart {
-    position: absolute;
-    font-size: 20px;
-    animation: floatUp 6s linear infinite;
-    opacity: 0.8;
-  }
-
-  @keyframes floatUp {
-    0% {
-      transform: translateY(100vh) scale(0.8);
-      opacity: 0;
-    }
-    20% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-10vh) scale(1.4);
-      opacity: 0;
-    }
-  }
-
-  /* 📱 Mobile responsiveness */
-  @media (max-width: 480px) {
+  <style>
     body {
-      padding: 10px;
+      font-family: "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #ffb3c6, #ffd6e0, #fff0f5);
+      text-align: center;
+      padding: 20px;
+      color: #4a0033;
     }
 
     .card {
-      padding: 20px 15px 30px;
+      background: #fff0f6;
+      border-radius: 20px;
+      padding: 25px 20px 35px;
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      position: relative;
+      overflow: hidden;
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
     }
 
     h2 {
-      font-size: 1rem;
+      font-size: 1.1rem;
+      margin-top: 0;
+      color: #b3005a;
     }
 
     .question {
-      font-size: 0.95rem;
+      font-size: 1rem;
+      margin: 20px 0 30px;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     button {
-      width: 100%;
-      max-width: 250px;
-      padding: 14px;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 24px;
       font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
     }
-  }
-</style>
+
+    #yesBtn {
+      background: #ff4b8b;
+      color: white;
+      box-shadow: 0 6px 15px rgba(255, 75, 139, 0.4);
+    }
+
+    #yesBtn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 18px rgba(255, 75, 139, 0.6);
+      background: #ff2f78;
+    }
+
+    #noBtn {
+      background: #ffe0f0;
+      color: #b3005a;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    #noBtn:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #7a0044;
+    }
+
+    .tiny {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .floating-hearts {
+      position: fixed;
+      pointer-events: none;
+      inset: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    /* 📱 Mobile responsiveness */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .card {
+        padding: 20px 15px 30px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      .question {
+        font-size: 0.95rem;
+      }
+
+      button {
+        width: 100%;
+        max-width: 250px;
+        padding: 14px;
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div class="floating-hearts" id="heartsContainer"></div>
 
@@ -159,11 +161,10 @@
     <h2>I have a question for you</h2>
 
     <p class="question">
-    We haven’t met in person yet, but you’ve still managed to make a great impression.<br><br>
-    So I figured I’d ask you something small but meaningful:<br><br>
-    Would you like to be my Valentine?
-  </p>
-
+      We haven’t met in person yet, but you’ve still managed to make a great impression.<br><br>
+      So I figured I’d ask you something small but meaningful:<br><br>
+      Would you like to be my Valentine?
+    </p>
 
     <div class="buttons">
       <button id="yesBtn">Yes</button>
@@ -171,9 +172,7 @@
     </div>
 
     <div class="footer" id="responseText">
-      <p class="tiny">
-        No pressure — just honesty.
-      </p>
+      <p class="tiny">No pressure — just honesty.</p>
     </div>
   </div>
 
@@ -181,7 +180,7 @@
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
   <script>
-    emailjs.init("Ld1PiKo6_KOJrh-vk");
+    emailjs.init("Ld1PiKo6_KOJrh-vk"); // Your PUBLIC KEY
 
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
@@ -194,17 +193,19 @@
       emailjs.send("service_dcanddh", "template_s56q12m", {
         name: "Vic",
         response: response
-      });
+      })
+      .then(() => console.log("Email sent"))
+      .catch((err) => console.error("Email failed:", err));
     }
 
-    // Make "No" button run away on hover
+    // No button runs away
     noBtn.addEventListener("mouseover", () => {
       const x = Math.random() * 60 - 30;
       const y = Math.random() * 60 - 30;
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
     });
 
-    // Handle "No" button clicks with escalating drama
+    // No button click logic
     noBtn.addEventListener("click", () => {
       noClickCount++;
 
@@ -227,18 +228,14 @@
       }
     });
 
-    // Handle "Yes" button click
+    // Yes button click logic
     yesBtn.addEventListener("click", () => {
       responseText.innerHTML = `
         <p><strong>Thank you, Ebube.</strong></p>
-        <p>
-          You just made my day.<br>
-          Valentine confirmed.
-        </p>
+        <p>You just made my day.<br>Valentine confirmed.</p>
       `;
 
       sendEmail("Clicked YES");
-
       spawnHearts();
     });
 
@@ -253,9 +250,7 @@
         heart.style.fontSize = 16 + Math.random() * 20 + "px";
         heartsContainer.appendChild(heart);
 
-        setTimeout(() => {
-          heart.remove();
-        }, 6000);
+        setTimeout(() => heart.remove(), 6000);
       }
     }
   </script>
