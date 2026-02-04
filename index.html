@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dear Ebube 💘</title>
+  <title>Dear Ebube</title>
   <style>
     body {
-      font-family: "Comic Sans MS", "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ff9a9e, #fecfef, #f6d5f7);
+      font-family: "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #ffb3c6, #ffd6e0, #fff0f5);
       text-align: center;
       padding: 40px;
       color: #4a0033;
@@ -23,24 +23,6 @@
       overflow: hidden;
     }
 
-    .card::before {
-      content: "💘";
-      font-size: 80px;
-      position: absolute;
-      top: -20px;
-      left: -10px;
-      opacity: 0.2;
-    }
-
-    .card::after {
-      content: "💘";
-      font-size: 80px;
-      position: absolute;
-      bottom: -20px;
-      right: -10px;
-      opacity: 0.2;
-    }
-
     h1 {
       font-size: 2rem;
       margin-bottom: 10px;
@@ -53,7 +35,7 @@
     }
 
     .question {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       margin: 20px 0 30px;
       line-height: 1.6;
     }
@@ -142,37 +124,46 @@
   <div class="floating-hearts" id="heartsContainer"></div>
 
   <div class="card">
-    <h1>Hey, Ebube 💖</h1>
-    <h2>Official Valentine Proposal from Vic™</h2>
+    <h1>Hey, Ebube</h1>
+    <h2>I have a question for you</h2>
 
     <p class="question">
-      After careful scientific analysis, multiple peer‑reviewed daydreams, and
-      several heart palpitations, one conclusion remains:<br><br>
-      <strong>Life is 1000x sweeter with you in it.</strong><br><br>
-      So I have a very serious, extremely professional question:
+      I’ve been thinking about this for a bit, and I wanted to ask you in a way that feels simple and honest.<br><br>
+      You make my days lighter and a lot more fun, and I’d really like to spend Valentine’s Day with you.<br><br>
+      So… will you be my Valentine?
     </p>
 
-    <h2>Will you be my Valentine? 💌</h2>
-
     <div class="buttons">
-      <button id="yesBtn">Yes 😍</button>
-      <button id="noBtn">No (not recommended) 🙈</button>
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
     </div>
 
     <div class="footer" id="responseText">
       <p class="tiny">
-        *Side effects may include: excessive smiling, random “I miss you” texts, and permanent VIP access to my heart.*
+        No pressure — just honesty.
       </p>
     </div>
   </div>
 
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
   <script>
+    emailjs.init("YOUR_PUBLIC_KEY");
+
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
     const responseText = document.getElementById("responseText");
     const heartsContainer = document.getElementById("heartsContainer");
 
     let noClickCount = 0;
+
+    function sendEmail(response) {
+      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+        name: "Ebube",
+        response: response
+      });
+    }
 
     // Make "No" button run away on hover
     noBtn.addEventListener("mouseover", () => {
@@ -186,32 +177,36 @@
       noClickCount++;
 
       const messages = [
-        "Are you sure? 😳",
-        "Like… REALLY sure? 😭",
-        "Wow. That hurt. 💔",
-        "Okay fine… be like that 😢",
-        "You know what? I'm leaving. Bye. 👋"
+        "Are you sure?",
+        "Like… really sure?",
+        "Alright, that stings a little.",
+        "Okay, noted.",
+        "Alright then… I'm out."
       ];
 
       if (noClickCount <= messages.length) {
-        alert(messages[noClickCount - 1]);
+        const msg = messages[noClickCount - 1];
+        alert(msg);
+        sendEmail("Clicked NO — " + msg);
       }
 
       if (noClickCount >= messages.length) {
-        noBtn.style.display = "none"; // No button disappears
+        noBtn.style.display = "none";
       }
     });
 
     // Handle "Yes" button click
     yesBtn.addEventListener("click", () => {
       responseText.innerHTML = `
-        <p><strong>Yay! 💖</strong></p>
+        <p><strong>Thank you, Ebube.</strong></p>
         <p>
-          You just made Vic the happiest human in the universe.<br>
-          Valentine status: <strong>UPGRADED</strong> ✅<br>
-          Heart ownership: <strong>Transferred to Ebube</strong> 💘
+          You just made my day.<br>
+          Valentine confirmed.
         </p>
       `;
+
+      sendEmail("Clicked YES");
+
       spawnHearts();
     });
 
